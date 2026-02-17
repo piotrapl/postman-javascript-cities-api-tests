@@ -1,0 +1,44 @@
+{
+  "info": {
+    "name": "Poland API - Negative Tests",
+    "_postman_id": "demo-collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Municipality By Name - Negative",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://local-gov-units.polandapi.com/api/v1/municipalities/name/{{city}}",
+          "protocol": "https",
+          "host": ["local-gov-units", "polandapi", "com"],
+          "path": ["api", "v1", "municipalities", "name", "{{city}}"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 404', function () {",
+              "    pm.response.to.have.status(404);",
+              "});",
+              "",
+              "pm.test('success == false', function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.success).to.eql(false);",
+              "});",
+              "",
+              "pm.test('Body contains message field', function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property('message');",
+              "});"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
