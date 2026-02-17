@@ -1,0 +1,12 @@
+{
+  "name": "postman-api-demo",
+  "version": "1.0.0",
+  "scripts": {
+    "test:json": "newman run collection.json -d data/cities.json -r html --reporter-html-export report.html",
+    "test:csv": "newman run collection.json -d data/cities.csv -r html --reporter-html-export report.html"
+  },
+  "devDependencies": {
+    "newman": "^6.0.0",
+    "newman-reporter-html": "^1.0.5"
+  }
+}
