@@ -1,0 +1,77 @@
+{
+  "info": {
+    "_postman_id": "b7a9f6d0-qa-demo-collection",
+    "name": "Poland API - Senior Negative Tests",
+    "description": "Data-driven negative API tests executed via Newman CLI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Reusable validation helper (Senior-level structure)",
+          "function validate404Response() {",
+          "    let json;",
+          "    try {",
+          "        json = pm.response.json();",
+          "    } catch (e) {",
+          "        pm.test('Response is valid JSON', function () {",
+          "            pm.expect.fail('Response is not valid JSON');",
+          "        });",
+          "        return;",
+          "    }",
+          "",
+          "    pm.test('success field equals false', function () {",
+          "        pm.expect(json.success).to.eql(false);",
+          "    });",
+          "",
+          "    pm.test('Response contains message field', function () {",
+          "        pm.expect(json).to.have.property('message');",
+          "    });",
+          "}"
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "GET Municipality By Name - Negative (404)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/municipalities/name/{{city}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "municipalities",
+            "name",
+            "{{city}}"
+          ]
+        },
+        "description": "Negative test: verify behavior for non-existing city name"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP status code is 404', function () {",
+              "    pm.response.to.have.status(404);",
+              "});",
+              "",
+              "// Call reusable validator",
+              "validate404Response();"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

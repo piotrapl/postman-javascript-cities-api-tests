@@ -1,0 +1,11 @@
+{
+  "id": "local-env",
+  "name": "Local",
+  "values": [
+    {
+      "key": "baseUrl",
+      "value": "https://local-gov-units.polandapi.com",
+      "enabled": true
+    }
+  ]
+}
