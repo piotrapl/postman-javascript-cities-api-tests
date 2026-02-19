@@ -19,8 +19,16 @@
 # 
 # - Dodanie testów kontraktowych (np. Pact) do weryfikacji zgodności API z umowami.
 # - Dodanie testów integracyjnych, które sprawdzają współdziałanie różnych komponentów systemu.
+# - Dodanie testów end-to-end, które symulują rzeczywiste scenariusze użytkowania API.
 
-name: CI - Postman/Newman API Tests
+# - Dodanie testów regresyjnych, które sprawdzają, czy nowe zmiany nie wprowadziły błędów do istniejącej funkcjonalności.
+# - Dodanie testów bezpieczeństwa, które sprawdzają podatności API na ataki (np. SQL injection, XSS).
+# - Dodanie testów wydajnościowych, które mierzą czas odpowiedzi API pod obciążeniem.
+
+# - Dodanie testów dostępności, które sprawdzają, czy API jest dostępne i działa poprawnie przez dłuższy czas.
+# - Dodanie testów lokalizacyjnych, które sprawdzają, czy API obsługuje różne języki i formaty danych.
+# - Dodanie testów integracyjnych z bazą danych, które sprawdzają, czy API poprawnie współdziała z bazą danych.
+# - Dodanie testów integracyjnych z zewnętrznymi usługami, które sprawdzają, czy API poprawnie współdziała z innymi systemami.
 
 on:
   push:
