@@ -1,15 +1,15 @@
 {
   "name": "postman-api-automation-demo",
   "version": "1.0.0",
-  "description": "Senior-level API automation demo with positive/negative tests, SLA and schema validation",
+  "description": "Senior-level API automation demo with positive/negative tests, SLA and JSON schema validation",
   "private": true,
   "scripts": {
-    "test:positive": "newman run postman/collection.json -e postman/environments/local.json -d data/positive-cities.json -r html --reporter-html-export reports/report-positive.html",
-    "test:negative": "newman run postman/collection.json -e postman/environments/local.json -d data/negative-cities.json -r html --reporter-html-export reports/report-negative.html",
-    "test": "npm run test:positive && npm run test:negative"
+    "test:positive": "newman run postman/collection.json -e postman/environments/local.json -d data/positive-cities.json -r htmlextra --reporter-htmlextra-export reports/report-positive.html",
+    "test:negative": "newman run postman/collection.json -e postman/environments/local.json -d data/negative-cities.json -r htmlextra --reporter-htmlextra-export reports/report-negative.html",
+    "test": "npm run test:positive ;; npm run test:negative"
   },
   "devDependencies": {
-    "newman": "^6.0.0",
-    "newman-reporter-html": "^1.0.5"
+    "newman": "^6.2.2",
+    "newman-reporter-htmlextra": "^1.22.5"
   }
 }
