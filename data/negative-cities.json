@@ -1,0 +1,4 @@
+[
+  { "city": "Ahjhj", "expectedStatus": 404 },
+  { "city": "Krackowek", "expectedStatus": 404 }
+]

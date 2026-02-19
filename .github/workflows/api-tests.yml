@@ -1,4 +1,4 @@
-name: Postman API Tests
+name: API Automation Tests
 
 on:
   push:
@@ -12,20 +12,29 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - name: Install dependencies
-        run: npm ci
+      - run: npm ci
 
-      - name: Run API tests
-        run: npm run test:ci
+      - name: Run Positive Tests
+        run: npx newman run postman/collection.json \
+              -e postman/environments/ci.json \
+              -d data/positive-cities.json \
+              -r html \
+              --reporter-html-export reports/report-positive.html
 
-      - name: Upload HTML report
+      - name: Run Negative Tests
+        run: npx newman run postman/collection.json \
+              -e postman/environments/ci.json \
+              -d data/negative-cities.json \
+              -r html \
+              --reporter-html-export reports/report-negative.html
+
+      - name: Upload Reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: newman-report
-          path: reports/report.html
+          name: newman-reports
+          path: reports/

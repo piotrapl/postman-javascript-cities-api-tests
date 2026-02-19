@@ -1,8 +1,8 @@
 {
   "info": {
-    "_postman_id": "b7a9f6d0-qa-demo-collection",
-    "name": "Poland API - Senior Negative Tests",
-    "description": "Data-driven negative API tests executed via Newman CLI",
+    "_postman_id": "senior-qa-advanced-collection",
+    "name": "Poland API - Senior Positive & Negative Tests",
+    "description": "Data-driven API tests with SLA validation and JSON schema validation.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "event": [
@@ -11,24 +11,46 @@
       "script": {
         "type": "text/javascript",
         "exec": [
-          "// Reusable validation helper (Senior-level structure)",
-          "function validate404Response() {",
-          "    let json;",
-          "    try {",
-          "        json = pm.response.json();",
-          "    } catch (e) {",
-          "        pm.test('Response is valid JSON', function () {",
-          "            pm.expect.fail('Response is not valid JSON');",
-          "        });",
-          "        return;",
-          "    }",
+          "// SLA threshold (ms)",
+          "const SLA_LIMIT = 1000;",
           "",
-          "    pm.test('success field equals false', function () {",
+          "// Common SLA validation",
+          "function validateSLA() {",
+          "    pm.test('Response time is below SLA (' + SLA_LIMIT + 'ms)', function () {",
+          "        pm.expect(pm.response.responseTime).to.be.below(SLA_LIMIT);",
+          "    });",
+          "}",
+          "",
+          "// Negative validation",
+          "function validate404Response() {",
+          "    const json = pm.response.json();",
+          "    pm.test('success == false', function () {",
           "        pm.expect(json.success).to.eql(false);",
           "    });",
-          "",
           "    pm.test('Response contains message field', function () {",
           "        pm.expect(json).to.have.property('message');",
+          "    });",
+          "}",
+          "",
+          "// Positive validation",
+          "function validate200Response() {",
+          "    const json = pm.response.json();",
+          "",
+          "    pm.test('success == true', function () {",
+          "        pm.expect(json.success).to.eql(true);",
+          "    });",
+          "",
+          "    const schema = {",
+          "        type: 'object',",
+          "        required: ['success', 'data'],",
+          "        properties: {",
+          "            success: { type: 'boolean' },",
+          "            data: { type: 'object' }",
+          "        }",
+          "    };",
+          "",
+          "    pm.test('Response matches JSON schema', function () {",
+          "        pm.response.to.have.jsonSchema(schema);",
           "    });",
           "}"
         ]
@@ -37,24 +59,14 @@
   ],
   "item": [
     {
-      "name": "GET Municipality By Name - Negative (404)",
+      "name": "GET Municipality By Name",
       "request": {
         "method": "GET",
-        "header": [],
         "url": {
           "raw": "{{baseUrl}}/api/v1/municipalities/name/{{city}}",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "api",
-            "v1",
-            "municipalities",
-            "name",
-            "{{city}}"
-          ]
-        },
-        "description": "Negative test: verify behavior for non-existing city name"
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "municipalities", "name", "{{city}}"]
+        }
       },
       "event": [
         {
@@ -62,12 +74,19 @@
           "script": {
             "type": "text/javascript",
             "exec": [
-              "pm.test('HTTP status code is 404', function () {",
-              "    pm.response.to.have.status(404);",
-              "});",
+              "validateSLA();",
               "",
-              "// Call reusable validator",
-              "validate404Response();"
+              "if (pm.iterationData.get('expectedStatus') === 404) {",
+              "    pm.test('HTTP status 404', function () {",
+              "        pm.response.to.have.status(404);",
+              "    });",
+              "    validate404Response();",
+              "} else {",
+              "    pm.test('HTTP status 200', function () {",
+              "        pm.response.to.have.status(200);",
+              "    });",
+              "    validate200Response();",
+              "}"
             ]
           }
         }

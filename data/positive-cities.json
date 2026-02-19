@@ -1,0 +1,4 @@
+[
+  { "city": "Warszawa", "expectedStatus": 200 },
+  { "city": "Kraków", "expectedStatus": 200 }
+]

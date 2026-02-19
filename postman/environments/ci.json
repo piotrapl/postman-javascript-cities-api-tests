@@ -1,6 +1,6 @@
 {
-  "id": "local-environment",
-  "name": "Local",
+  "id": "ci-environment",
+  "name": "CI",
   "values": [
     {
       "key": "baseUrl",
