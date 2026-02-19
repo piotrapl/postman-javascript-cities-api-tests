@@ -1,8 +1,9 @@
 # Plik konfiguracyjny GitHub Actions - definiuje workflow do automatycznego testowania API za pomocą Newmana. 
-# Workflow jest uruchamiany przy każdym pushu do gałęzi main oraz i przy każdym pull request.
+# Workflow jest uruchamiany przy każdym push do gałęzi main oraz i przy każdym pull request.
 # W sekcji jobs jest zadanie "api-tests", wykonywane na najnowszym systemie Ubuntu.
 # Sekcja steps - kroki do: 1. checkoutu kodu, 2. ustawienia Node.js, 3. instalacji zależności, 
 #      4. uruchomienia testów pozytywnych i negatywnych 5. uploadu raportów jako artefaktów.
+
 name: API Automation Tests
 
 on:
