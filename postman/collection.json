@@ -1,6 +1,4 @@
-// Trzykładowa kolekcja Postman z testami API (https://local-gov-units.polandapi.com), 
-// pozytywne + negatywne testy + walidacja SLA i walidacja schematu JSON.
-
+{
   "info": {
     "_postman_id": "senior-qa-advanced-collection",
     "name": "Poland API - Senior Positive & Negative Tests",
