@@ -4,8 +4,9 @@
 # W sekcji jobs jest zadanie "api-tests", wykonywane na najnowszym systemie Ubuntu.
 # A w zadaniu "api-tests" sekcja steps - kroki do: 1. checkoutu kodu, 2. ustawienia Node.js, 3. instalacji zależności, 
 #      4. uruchomienia testów pozytywnych i negatywnych 5. uploadu raportów jako artefaktów.
-
-# Plik ten jest kluczowy dla automatyzacji testów API i zapewnienia ciągłej integracji.
+# i sekcja "runs-on" - określa, że zadanie będzie wykonywane na najnowszym systemie Ubuntu.
+# ten system znajduje się w chmurze GitHub Actions.
+# 
 
 on:
   push:
