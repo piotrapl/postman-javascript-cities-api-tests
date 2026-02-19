@@ -6,7 +6,6 @@
 #      4. uruchomienia testów pozytywnych i negatywnych 5. uploadu raportów jako artefaktów.
 # i sekcja "runs-on" - określa, że zadanie będzie wykonywane na najnowszym systemie Ubuntu.
 # ten system znajduje się w chmurze GitHub Actions.
-# 
 
 on:
   push:
