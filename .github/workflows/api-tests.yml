@@ -5,7 +5,7 @@
 # Sekcja steps - kroki do: 1. checkoutu kodu, 2. ustawienia Node.js, 3. instalacji zależności, 
 #      4. uruchomienia testów pozytywnych i negatywnych 5. uploadu raportów jako artefaktów.
 
-name: API Automation Tests
+name: CI - Postman/Newman API Tests
 
 on:
   push:
