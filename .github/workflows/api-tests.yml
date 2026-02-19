@@ -7,6 +7,19 @@
 
 # Plik ten jest kluczowy dla automatyzacji testów API i zapewnienia ciągłej integracji.
 
+# Możliwe rozszerzenia:
+# - Dodanie testów wydajnościowych lub bezpieczeństwa.
+# - Integracja z narzędziami do monitorowania jakości kodu.
+# - Powiadomienia o wynikach testów (np. Slack, email).
+#  - Dodanie testów dla różnych środowisk (np. staging, production).
+# 
+# - Użycie matrix strategy do testowania na różnych wersjach Node.js lub OS-ach.
+# - Integracja z narzędziami do zarządzania testami (np. TestRail).
+# - Dodanie warunków do uruchamiania testów tylko dla określonych plików lub katalogów (np. tylko dla zmian w katalogu "api").
+# 
+# - Dodanie testów kontraktowych (np. Pact) do weryfikacji zgodności API z umowami.
+# - Dodanie testów integracyjnych, które sprawdzają współdziałanie różnych komponentów systemu.
+
 name: CI - Postman/Newman API Tests
 
 on:
