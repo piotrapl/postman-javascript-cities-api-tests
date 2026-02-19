@@ -2,8 +2,10 @@
 # - definiuje workflow do automatycznego testowania API za pomocą Newmana. 
 # Workflow jest uruchamiany przy każdym push do gałęzi main oraz i przy każdym pull request.
 # W sekcji jobs jest zadanie "api-tests", wykonywane na najnowszym systemie Ubuntu.
-# Sekcja steps - kroki do: 1. checkoutu kodu, 2. ustawienia Node.js, 3. instalacji zależności, 
+# A w zadaniu "api-tests" sekcja steps - kroki do: 1. checkoutu kodu, 2. ustawienia Node.js, 3. instalacji zależności, 
 #      4. uruchomienia testów pozytywnych i negatywnych 5. uploadu raportów jako artefaktów.
+
+# Plik ten jest kluczowy dla automatyzacji testów API i zapewnienia ciągłej integracji.
 
 name: CI - Postman/Newman API Tests
 
