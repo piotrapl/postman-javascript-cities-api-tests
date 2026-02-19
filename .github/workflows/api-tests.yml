@@ -49,6 +49,7 @@ jobs:
 # Możliwe rozszerzenia:
 # - Dodanie testów wydajnościowych lub bezpieczeństwa.
 # - Integracja z narzędziami do monitorowania jakości kodu.
+
 # - Powiadomienia o wynikach testów (np. Slack, email).
 #  - Dodanie testów dla różnych środowisk (np. staging, production).
 # 
@@ -66,5 +67,6 @@ jobs:
 
 # - Dodanie testów dostępności, które sprawdzają, czy API jest dostępne i działa poprawnie przez dłuższy czas.
 # - Dodanie testów lokalizacyjnych, które sprawdzają, czy API obsługuje różne języki i formaty danych.
+
 # - Dodanie testów integracyjnych z bazą danych, które sprawdzają, czy API poprawnie współdziała z bazą danych.
 # - Dodanie testów integracyjnych z zewnętrznymi usługami, które sprawdzają, czy API poprawnie współdziała z innymi systemami.
