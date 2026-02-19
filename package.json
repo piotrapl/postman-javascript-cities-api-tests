@@ -6,7 +6,7 @@
   "scripts": {
     "test:positive": "newman run postman/collection.json -e postman/environments/local.json -d data/positive-cities.json -r htmlextra --reporter-htmlextra-export reports/report-positive.html",
     "test:negative": "newman run postman/collection.json -e postman/environments/local.json -d data/negative-cities.json -r htmlextra --reporter-htmlextra-export reports/report-negative.html",
-    "test": "npm run test:positive ;; npm run test:negative"
+    "test": "npm run test:positive ; npm run test:negative"
   },
   "devDependencies": {
     "newman": "^6.2.2",
