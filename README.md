@@ -32,12 +32,12 @@ postman-api-automation-demo/
 ```
 
 ### Instalacja i uruchomienie
-
+```bash
 npm install   # instalacja zależności
 npm test      # wszystkie testy
 npm run test:positive   # tylko pozytywne
 npm run test:negative   # tylko negatywne
-
+```
 ### Raporty
 
 HTML w folderze reports/:
