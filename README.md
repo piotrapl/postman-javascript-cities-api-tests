@@ -17,7 +17,7 @@
 - CI z GitHub Actions
 
 ### Struktura projektu
-
+```bash
 postman-api-automation-demo/
 ├── postman/
 │   └── collection.json
@@ -29,6 +29,7 @@ postman-api-automation-demo/
 │   └── report-negative.html
 ├── package.json
 └── README.md
+```
 
 ### Instalacja i uruchomienie
 
