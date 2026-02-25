@@ -1,6 +1,6 @@
 ## Projekt testów API z użyciem Postman, Newman CLI, raportami HTML i integracją CI.
 
-![CI](https://github.com/piotrapl/postman-javascript-cities-api-tests/actions/workflows/api-tests.yml/badge.svg)
+<!--![CI](https://github.com/piotrapl/postman-javascript-cities-api-tests/actions/workflows/api-tests.yml/badge.svg)-->
 
 ### Przegląd
 
